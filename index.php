@@ -49,7 +49,7 @@ session_start();
         $bdHandler = new BookingDetailHandler();
         $cBookings = $bdHandler->getCustomerBookings($cHandler);
         $isSessionExists = true;
-        $isAdmin = $_SESSION["authenticated"];
+        // $isAdmin = $_SESSION["authenticated"];
     }
     if (isset($_SESSION["isAdmin"]) && isset($_SESSION["username"])) {
         $isSessionExists = true;
@@ -199,7 +199,7 @@ session_start();
                                     </button>
                                     <?php } ?>
                                 </div>
-                                <small class="text-muted">$250 / night</small>
+                                <small class="text-muted">&#8358;120,000 / night</small>
                             </div>
                         </div>
                     </div>
@@ -222,7 +222,7 @@ session_start();
                                     Book
                                 </button>
                                 <?php } ?>
-                                <small class="text-muted">$180 / night</small>
+                                <small class="text-muted">&#8358;80,000 / night</small>
                             </div>
                         </div>
                     </div>
@@ -245,7 +245,7 @@ session_start();
                                     Book
                                 </button>
                                 <?php } ?>
-                                <small class="text-muted">$130 / night</small>
+                                <small class="text-muted">&#8358;70,000  / night</small>
                             </div>
                         </div>
                     </div>
@@ -373,12 +373,12 @@ session_start();
                                 </div>
                                 <div class="form-group row align-items-center">
                                     <label class="col-sm-3 col-form-label font-weight-bold" for="roomPrice">Room Price</label>
-                                    <div class="col-sm-9 roomPriceTxt">235.75</div>
+                                    <div class="col-sm-9 roomPriceTxt"></div>
                                 </div>
                                 <div class="form-group row align-items-center">
                                     <label class="col-sm-3 col-form-label font-weight-bold" for="numNights"><span class="numNightsTxt">3</span> nights </label>
                                     <div class="col-sm-9">
-                                        $<span class="roomPricePerNightTxt">69.63</span> avg. / night
+                                        &#8358;<span class="roomPricePerNightTxt"></span> avg. / night
                                     </div>
                                     <label class="col-sm-3 col-form-label font-weight-bold" for="numNights">From - to</label>
                                     <div class="col-sm-9 fromToTxt">
@@ -386,11 +386,11 @@ session_start();
                                     </div>
                                     <label class="col-sm-3 col-form-label font-weight-bold">Taxes </label>
                                     <div class="col-sm-9">
-                                        $<span class="taxesTxt">0</span>
+                                        &#8358;<span class="taxesTxt">0</span>
                                     </div>
                                     <label class="col-sm-3 col-form-label font-weight-bold">Total </label>
                                     <div class="col-sm-9">
-                                        $<span class="totalTxt">0.00</span>
+                                        &#8358;<span class="totalTxt">0.00</span>
                                     </div>
                                 </div>
                             </div>
@@ -488,7 +488,7 @@ session_start();
 </main>
 
 <footer class="container">
-    <p>&copy; Company 2017-2018</p>
+    <p>&copy; Hotel Booking <?php echo date('Y'); ?></p>
 </footer>
 <script src="js/utilityFunctions.js"></script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>

@@ -1,6 +1,6 @@
-const DELUXE_PER_NIGHT = 250;
-const DOUBLE_PER_NIGHT = 180;
-const SINGLE_PER_NIGHT = 150;
+const DELUXE_PER_NIGHT = 120000;
+const DOUBLE_PER_NIGHT = 80000;
+const SINGLE_PER_NIGHT = 70000;
 
 const multiStepRsvnFormId = '#multiStepRsvnForm';
 const multiStepRsvnformData = {
@@ -163,7 +163,7 @@ class ReservationCost {
   }
 
   displayRoomPrice () {
-    document.getElementsByClassName('roomPriceTxt')[0].innerHTML = '$' + this.numNights() * this.priceByRoomType();
+    document.getElementsByClassName('roomPriceTxt')[0].innerHTML = '&#8358;' + this.numNights() * this.priceByRoomType();
   }
 
   displayNumNights () {

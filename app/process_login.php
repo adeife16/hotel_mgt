@@ -32,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
     }
     if (!empty($errors_)) {
         echo $errors_;
-    } else {
+    } 
+    else {
 
         // check whether email belongs to customer
         $handler = new CustomerHandler();
@@ -43,17 +44,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
 
         if (!$handler->isPasswordMatchWithEmail($_POST['password'], $customer)) {
             echo Util::displayAlertV1("Incorrect password.", "warning");
-        } else {
+        }
+        else {
             if ($isAdmin) { 
                 $_SESSION["username"] = $_POST["email"];
                 $_SESSION["accountEmail"] = $_POST["email"];
                 $_SESSION["isAdmin"] = [1, "true"];
-                $_SESSION["authenticated"] = [1, "true"];
+                // $_SESSION["authenticated"] = [1, "true"];
                 echo json_encode($_SESSION["isAdmin"]);
-            } else {
+            }
+            else {
                 $_SESSION["username"] = $handler->getUsername($_POST["email"]);
                 $_SESSION["accountEmail"] = $customer->getEmail();
-                $_SESSION["authenticated"] = [1, "false"];
+                // $_SESSION["authenticated"] = [0, "false"];
                 $_SESSION["password"] = $_POST["password"];
 
                 // set the session phone number too
