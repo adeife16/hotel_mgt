@@ -12,7 +12,7 @@ require 'models/Pricing.php';
 require 'models/StatusEnum.php';
 require 'handlers/BookingReservationHandler.php';
 
-if (isset($_SESSION["authenticated"]) && $_SESSION["authenticated"][1] == "false") {
+if (isset($_SESSION["authenticated"])){
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["readySubmit"])) {
         $startDate = $endDate = null;
         $errors_ = null;
