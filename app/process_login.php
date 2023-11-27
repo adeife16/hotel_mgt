@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
                 $_SESSION["accountEmail"] = $_POST["email"];
                 $_SESSION["isAdmin"] = "true";
                 $_SESSION["authenticated"] = 1;
-                echo json_encode($_SESSION["isAdmin"]);
+                // echo json_encode($_SESSION["isAdmin"]);
             }
             else {
                 $_SESSION["username"] = $handler->getUsername($_POST["email"]);
@@ -64,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
                 if ($handler->getCustomerObj($_POST["email"])->getPhone()) {
                     $_SESSION["phoneNumber"] = $handler->getCustomerObj($_POST["email"])->getPhone();
                 }
-                echo json_encode($_SESSION["authenticated"]);
             }
+            echo json_encode($_SESSION["authenticated"]);
         }
     }
 }
