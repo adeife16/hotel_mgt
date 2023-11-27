@@ -50,14 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitBtn"])) {
                 $_SESSION["username"] = $_POST["email"];
                 $_SESSION["accountEmail"] = $_POST["email"];
                 $_SESSION["isAdmin"] = "true";
-                // $_SESSION["authenticated"] = [1, "true"];
+                $_SESSION["authenticated"] = 1;
                 echo json_encode($_SESSION["isAdmin"]);
             }
             else {
                 $_SESSION["username"] = $handler->getUsername($_POST["email"]);
                 $_SESSION["accountEmail"] = $customer->getEmail();
                 $_SESSION["isAdmin"] = "false";
-                // $_SESSION["authenticated"] = [0, "false"];
+                $_SESSION["authenticated"] = 2;
                 $_SESSION["password"] = $_POST["password"];
 
                 // set the session phone number too

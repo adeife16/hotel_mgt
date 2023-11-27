@@ -77,12 +77,18 @@ const loginSubmit = function () {
     data: loginData
   }).done(function (response) {
     let resp = JSON.parse(response);
-    if (resp[0] === 1) {
+    if (resp === 1) {
       new UtilityFunctions().setCookie('is_admin', resp[1]);
       let locHref = location.href;
       let homePageLink = locHref.substring(0, locHref.lastIndexOf('/')) + '/index.php';
       window.location.replace(homePageLink);
-    } else {
+    }
+    else if(resp === 2){
+      let locHref = location.href;
+      let homePageLink = locHref.substring(0, locHref.lastIndexOf('/')) + '/index.php';
+      window.location.replace(homePageLink);
+    }
+    else {
       $(formIds.login).find('.alert').remove();
       $(formIds.login).prepend(response);
     }
