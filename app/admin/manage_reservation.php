@@ -9,8 +9,7 @@ require '../Util.php';
 require '../dao/BookingDetailDAO.php';
 require '../handlers/BookingDetailHandler.php';
 
-if (isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'] == 'true') {
-    if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"][1] == "true") {
+    if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == "true") {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["confirm"])) {
             $bdh = new BookingDetailHandler();
             $bdh->confirmSelection($_POST["item"]);
@@ -24,6 +23,3 @@ if (isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'] == 'true') {
     } else {
         echo "failed";
     }
-} else {
-    echo 'not allowed';
-}
