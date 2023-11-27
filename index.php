@@ -37,7 +37,7 @@ session_start();
 
     $username = $cHandler = $bdHandler = $cBookings = null;
     $isSessionExists = false;
-    $isAdmin = [];
+    $isAdmin = "";
     if (isset($_SESSION["username"])) {
         $username = $_SESSION["username"];
 
@@ -80,7 +80,7 @@ session_start();
                     <?php if ($isSessionExists) { ?>
                     <h4 class="text-white"><?php echo $username; ?></h4>
                     <ul class="list-unstyled">
-                        <?php if ($isAdmin[1] == "true" && isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'] == "true") { ?>
+                        <?php if ($isAdmin == "true") { ?>
                         <li><a href="admin.php" class="text-white">Manage customer reservation(s)<i class="far fa-address-book ml-2"></i></a></li>
                         <?php } else { ?>
                         <li><a href="#" class="text-white my-reservations">View my bookings<i class="far fa-address-book ml-2"></i></a></li>
@@ -254,7 +254,6 @@ session_start();
         </div>
     </div>
 
-    <?php if(isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'] == "false") : ?>
     <div class="modal fade book-now-modal-lg" tabindex="-1" role="dialog" aria-labelledby="bookNowModalLarge" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -266,7 +265,6 @@ session_start();
                 </div>
 
                 <div class="modal-body" id="reservationModalBody">
-                    <?php if ($isSessionExists == 1 && $isAdmin[1] == "false") { ?>
                         <form role="form" autocomplete="off" method="post" id="multiStepRsvnForm">
                             <div class="rsvnTab">
                                 <?php if ($isSessionExists) { ?>
@@ -407,15 +405,11 @@ session_start();
                                 <button type="button" class="btn btn-success" id="rsvnNextBtn" onclick="rsvnNextPrev(1)" readySubmit="false">Next</button>
                             </div>
                         </div>
-                    <?php } else { ?>
-                        <p>Booking is reserved for customers.</p>
-                    <?php } ?>
                 </div>
 
             </div>
         </div>
     </div>
-    <?php endif; ?>
 
     <div class="modal sign-in-to-book-modal" tabindex="-1" role="dialog" aria-labelledby="signInToBookModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -433,7 +427,7 @@ session_start();
         </div>
     </div>
 
-    <?php if(($isSessionExists == 1 && $isAdmin[1] == "false") && isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'] == "false") : ?>
+    <?php if(($isSessionExists == 1 && $isAdmin == "false")) : ?>
     <div class="modal" id="myProfileModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
